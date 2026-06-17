@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ארגז כלי AI - אפקה</title>
+    <title>ארגז כלי AI - אפקה המכללה האקדמית להנדסה</title>
     <link href="https://fonts.googleapis.com/css2?family=Alef&family=Assistant&family=Heebo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -26,7 +26,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -217,7 +217,6 @@
             opacity: 0.9;
         }
 
-        /* עזרים להסתרת אלמנטים בסינון */
         .hidden {
             display: none !important;
         }
@@ -228,97 +227,405 @@
 <div class="container">
     <!-- כותרת -->
     <header class="hero-header">
-        <h1>🚀 קטלוג כלי AI מתקדם</h1>
-        <p>ארגז הכלים המלא למרצי אפקה, המשלב כלים ממפגשי העמיתים, מעבדת ה-AI, ומערכי תרגול האנגלית. השתמשו בסינון כדי למצוא בדיוק את הכלי לו אתם זקוקים.</p>
+        <h1>🚀 קטלוג כלי AI לאקדמיה ולהנדסה</h1>
+        <p>ארגז הכלים המלא למרצים וסטודנטים באפקה. סקירת ספרות, פיתוח קוד, תרגול אנגלית, בניית בוטים ועיצוב. השתמשו בכפתורי הסינון למטה כדי למצוא את הכלי המושלם למשימה שלכם.</p>
     </header>
 
     <!-- מערכת סינון -->
     <nav class="filters" id="filter-container">
         <button class="filter-btn active" data-filter="all">הכל</button>
-        <button class="filter-btn" data-filter="english">🇬🇧 תרגול אנגלית</button>
-        <button class="filter-btn" data-filter="text">📝 טקסט ושפה</button>
+        <button class="filter-btn" data-filter="research">🔬 מחקר ואקדמיה</button>
+        <button class="filter-btn" data-filter="sim">⚙️ הנדסה ונתונים</button>
         <button class="filter-btn" data-filter="code">💻 קוד ופיתוח</button>
-        <button class="filter-btn" data-filter="media">🎥 וידאו ועיצוב</button>
-        <button class="filter-btn" data-filter="sim">🔬 סימולציות</button>
+        <button class="filter-btn" data-filter="agents">🤖 סוכנים וצ'טבוטים</button>
+        <button class="filter-btn" data-filter="english">🇬🇧 תרגול אנגלית</button>
+        <button class="filter-btn" data-filter="media">🎥 וידאו ומצגות</button>
         <button class="filter-btn" data-filter="manage">⏰ ארגון וניהול</button>
     </nav>
 
     <!-- גריד הכלים -->
     <main class="tools-grid" id="tools-grid">
 
-        <!-- NotebookLM -->
-        <article class="card" data-category="english text media manage">
-            <h3 class="card-title">📚 NotebookLM</h3>
+        <!-- GenSpark -->
+        <article class="card" data-category="research text">
+            <h3 class="card-title">✨ GenSpark</h3>
             <div class="tags-container">
-                <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">📝 טקסט</span>
-                <span class="tag">🎧 פודקאסט</span>
+                <span class="tag">🔬 חיפוש AI</span>
+                <span class="tag">📝 סיכום עומק</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> סוכן ידע אישי מבוסס מקורות סגורים (מאמרים, סילבוסים). מפיק פודקאסטים עשירים ומאפשר שאלות על החומר.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> מנוע חיפוש חדשני מבוסס ריבוי סוכנים המייצר עמודי "Sparkpages" – מעין עמודי ויקיפדיה אינטראקטיביים שנוצרים בזמן אמת לפי השאילתה שלך, ומבוססים על מקורות אמינים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי למעצבי הדרכה</div>
+                <ul>
+                    <li>מצוין ליצירת דפי רקע מקיפים לסטודנטים בתחילת קורס במקום להפנות אותם לעשרות לינקים שונים.</li>
+                    <li>הצגת נושאים הנדסיים מורכבים בפורמט קריא, מאורגן וויזואלי.</li>
+                </ul>
+            </div>
+            <a href="https://www.genspark.ai/" target="_blank" class="card-link">למעבר ל-GenSpark 🔗</a>
+        </article>
+
+        <!-- Google AI Studio -->
+        <article class="card" data-category="code agents sim">
+            <h3 class="card-title">🧪 Google AI Studio</h3>
+            <div class="tags-container">
+                <span class="tag">💻 סביבת פיתוח מודלים</span>
+                <span class="tag">🤖 הנדסת פרומפטים</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סביבת הפיתוח וההתנסות הרשמית של גוגל למודלי Gemini. מאפשרת שליטה מדויקת בפרמטרים (טמפרטורה, System Instructions) והפקת קוד API.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>מעבדה מושלמת לסטודנטים בתחומי מערכות מידע ללמידת הנדסת פרומפטים (Prompt Engineering) מתקדמת.</li>
+                    <li>בניית אבות-טיפוס (Prototypes) לאפליקציות AI מבוססות API לפני כתיבת קוד מלא.</li>
+                </ul>
+            </div>
+            <a href="https://aistudio.google.com/" target="_blank" class="card-link">למעבר ל-Google AI Studio 🔗</a>
+        </article>
+
+        <!-- Grok -->
+        <article class="card" data-category="research text sim">
+            <h3 class="card-title">✖️ Grok (xAI)</h3>
+            <div class="tags-container">
+                <span class="tag">🔬 חיפוש זמן אמת</span>
+                <span class="tag">📝 מודל שפה</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> מודל השפה של חברת xAI, הניזון ומחובר בזמן אמת לזרם הנתונים של רשת X (לשעבר טוויטר). מצטיין בגישה למידע מהדקות האחרונות ושיח נטול צנזורה.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>אידיאלי לניתוח סנטימנט (Sentiment Analysis) בזמן אמת עבור פרויקטי Data Science.</li>
+                    <li>איתור מגמות טכנולוגיות ואירועים תעשייתיים מיידיים שטרם הגיעו למאגרי המאמרים.</li>
+                </ul>
+            </div>
+            <a href="https://grok.com/" target="_blank" class="card-link">למעבר ל-Grok 🔗</a>
+        </article>
+
+        <!-- Voiceflow -->
+        <article class="card" data-category="agents code manage">
+            <h3 class="card-title">🌊 Voiceflow</h3>
+            <div class="tags-container">
+                <span class="tag">🤖 סוכני צ'אט (Chatbots)</span>
+                <span class="tag">💻 No-Code</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמה ויזואלית מובילה לבנייה, בדיקה והשקה של צ'טבוטים וסוכני AI. מאפשרת למעצבי הדרכה ולסטודנטים לשרטט תרחישי שיחה ממש כמו במפת חשיבה.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>בניית בוטים אינטראקטיביים המדמים תרחישי תמיכה טכנית לתרגול מעשי.</li>
+                    <li>הכלי המושלם למעצבים - בניית לוגיקה חכמה באמצעות ממשק גרירה והשלכה (Drag & Drop) ללא ידע מוקדם בתכנות.</li>
+                </ul>
+            </div>
+            <a href="https://www.voiceflow.com/" target="_blank" class="card-link">למעבר ל-Voiceflow 🔗</a>
+        </article>
+
+        <!-- Botpress -->
+        <article class="card" data-category="agents code manage">
+            <h3 class="card-title">🤖 Botpress</h3>
+            <div class="tags-container">
+                <span class="tag">🤖 בניית צ'טבוטים</span>
+                <span class="tag">⚙️ אוטומציה ארגונית</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמה לבניית סוכני AI מתקדמים עם בסיס ידע עצמאי (Knowledge Base), זרימות עבודה ואינטגרציות למערכות חיצוניות.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>יצירת "בוט מוסדי" לשירות סטודנטים האוסף מידע מסילבוסים ותקנונים.</li>
+                    <li>תרגול מתקדם בקורסי מערכות מידע: כיצד לבנות צ'טבוט ארגוני שקורא נתונים מ-API חיצוני.</li>
+                </ul>
+            </div>
+            <a href="https://botpress.com/" target="_blank" class="card-link">למעבר ל-Botpress 🔗</a>
+        </article>
+
+        <!-- Chatbase -->
+        <article class="card" data-category="agents code manage">
+            <h3 class="card-title">💬 Chatbase</h3>
+            <div class="tags-container">
+                <span class="tag">🤖 בניית צ'טבוטים</span>
+                <span class="tag">📝 סוכן מבוסס מידע</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמת No-Code מהירה ליצירת צ'טבוט AI המאומן בלעדית על בסיס הנתונים שלכם (העלאת קבצי PDF, הדבקת קישורים לשאלות ותשובות, ועוד).</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי למעצבי הדרכה</div>
+                <ul>
+                    <li>יצירת "עוזר הוראה וירטואלי" לקורס שמכיר את הסילבוס, המטלות והמצגות, ויודע לענות לסטודנטים 24/7 באופן ממוקד.</li>
+                    <li>מספק קוד הטמעה (Embed) פשוט שניתן לשתול ישירות בתוך עמוד ה-Moodle של הקורס.</li>
+                </ul>
+            </div>
+            <a href="https://www.chatbase.co/" target="_blank" class="card-link">למעבר ל-Chatbase 🔗</a>
+        </article>
+
+        <!-- Bolt.new -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">⚡ Bolt.new</h3>
+            <div class="tags-container">
+                <span class="tag">💻 Vibe coding</span>
+                <span class="tag">⚙️ סביבת פיתוח דפדפן</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סביבת פיתוח מלאה (WebContainers) שפועלת ישירות בדפדפן ומנוהלת על ידי AI. אתה מבקש אפליקציה, והכלי בונה, מריץ ומציג אותה מיד.</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li><strong>תרגול אנגלית:</strong> Reading Companion לסיכום ודיון על טקסטים אקדמיים (ללא חילוץ תשובות מגוגל).</li>
-                    <li><strong>למידה מותאמת:</strong> הפיכת חומרי קורס מורכבים (כמו ניתוח תפעולי) ל-Audio Overview מרתק.</li>
+                    <li>מעולה למתן מטלות תכנות שהסטודנט יכול לערוך ולבדוק ישירות בדפדפן, ללא צורך בהתקנת סביבות עבודה על המחשב.</li>
+                    <li>יצירת דוגמאות חיות ומיידיות לשיעורי Web Development.</li>
+                </ul>
+            </div>
+            <a href="https://bolt.new" target="_blank" class="card-link">למעבר ל-Bolt.new 🔗</a>
+        </article>
+
+        <!-- Base44 -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">🧩 Base44</h3>
+            <div class="tags-container">
+                <span class="tag">💻 Full Stack AI</span>
+                <span class="tag">⚙️ פיתוח מבוסס טקסט</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמת Vibe coding עוצמתית לבניית אפליקציות מורכבות יותר, הכוללות בסיסי נתונים, אימות משתמשים (Auth) וצד-שרת מובנה.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>בניית סימולטורים פנימיים או בוחן עצמי אינטראקטיבי לקורס ללא צורך בכתיבת קוד ידנית מורכבת.</li>
+                    <li>הדגמות מהירות של ארכיטקטורת תוכנה ו-Prototypes חיים למרצים וסטודנטים.</li>
+                </ul>
+            </div>
+            <a href="https://base44.com" target="_blank" class="card-link">למעבר ל-Base44 🔗</a>
+        </article>
+
+        <!-- Canva AI -->
+        <article class="card" data-category="media text">
+            <h3 class="card-title">🎨 Canva Magic Studio</h3>
+            <div class="tags-container">
+                <span class="tag">🖼️ עיצוב וגרפיקה</span>
+                <span class="tag">🎥 וידאו ומצגות</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> חבילת כלי AI מובנית ב-Canva. כלי החובה למעצבי הדרכה ולכל מי שצריך תוצר ויזואלי ברמה גבוהה במינימום מאמץ.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום למעצבי הדרכה וסטודנטים</div>
+                <ul>
+                    <li><strong>עיצוב הדרכה:</strong> המרה מהירה של מערכי שיעור טקסטואליים למצגות, תרשימי זרימה יפים ואינפוגרפיקות מסכמות.</li>
+                    <li><strong>לסטודנטים:</strong> יצירת פוסטרים מדעיים ופרזנטציות אסתטיות לפרויקטי גמר שמקרינות מקצוענות.</li>
+                </ul>
+            </div>
+            <a href="https://www.canva.com/magic/" target="_blank" class="card-link">למעבר ל-Canva 🔗</a>
+        </article>
+
+        <!-- Perplexity -->
+        <article class="card" data-category="research text sim">
+            <h3 class="card-title">🔍 Perplexity AI</h3>
+            <div class="tags-container">
+                <span class="tag">🔬 מחקר אקדמי</span>
+                <span class="tag">📝 חיפוש מקורות</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> מנוע חיפוש מבוסס AI המחובר לרשת בזמן אמת. מספק תשובות מפורטות וממוסמכות (עם הערות שוליים וקישורים למקורות).</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>מצוין למחקר מקדים לפרויקטי גמר (Literature Review).</li>
+                    <li>מסייע לסטודנטים למצוא נתונים עדכניים או פתרונות קיימים בתעשייה, תוך אימות מיידי של המידע.</li>
+                </ul>
+            </div>
+            <a href="https://www.perplexity.ai/" target="_blank" class="card-link">למעבר ל-Perplexity 🔗</a>
+        </article>
+
+        <!-- Consensus -->
+        <article class="card" data-category="research text">
+            <h3 class="card-title">📖 Consensus</h3>
+            <div class="tags-container">
+                <span class="tag">🔬 מאמרים מדעים</span>
+                <span class="tag">📝 סקירת ספרות</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> מנוע חיפוש AI הסורק אך ורק מאגרי מחקר ומאמרים מדעיים (Peer-reviewed). מתמצת מסקנות מחוקרים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>מושלם לעבודות סמינריוניות ומחקר הנדסי מתקדם.</li>
+                    <li>מגן לחלוטין מפני "הזיות" AI כיוון שהוא שואב טקסטים ומסקנות רק ממאמר אקדמי קיים ומאומת.</li>
+                </ul>
+            </div>
+            <a href="https://consensus.app/" target="_blank" class="card-link">למעבר ל-Consensus 🔗</a>
+        </article>
+
+        <!-- SciSpace -->
+        <article class="card" data-category="research text sim">
+            <h3 class="card-title">🌌 SciSpace (Typeset.io)</h3>
+            <div class="tags-container">
+                <span class="tag">🔬 קריאת מאמרים</span>
+                <span class="tag">⚙️ פענוח נוסחאות</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> "טייס משנה" (Copilot) לקריאת מחקרים מדעיים. מסוגל לפענח ולהסביר גרפים, טבלאות מתמטיות מורכבות ונוסחאות מתוך קבצי PDF.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>הכלי היחיד שבאמת מסביר נוסחאות הנדסיות קשות מתוך PDF מסרוק.</li>
+                    <li>מסייע משמעותית לסטודנטים בשנים א'-ב' להתגבר על קשיי הקריאה של חומר אקדמי טכני צפוף.</li>
+                </ul>
+            </div>
+            <a href="https://scispace.com/" target="_blank" class="card-link">למעבר ל-SciSpace 🔗</a>
+        </article>
+
+        <!-- Cursor IDE -->
+        <article class="card" data-category="code sim agents">
+            <h3 class="card-title">💻 Cursor</h3>
+            <div class="tags-container">
+                <span class="tag">💻 סביבת פיתוח (IDE)</span>
+                <span class="tag">⚙️ תכנות AI</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> עורך הקוד המוביל כיום בתעשייה (מבוסס VS Code) עם AI מוטמע עמוק בפנים. קורא את כל בסיס הקוד ומתכנת יחד איתך.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>כלי חובה לסטודנטים בהנדסת תוכנה ומדעי המחשב לשלבי הפיתוח של פרויקט הגמר.</li>
+                    <li>משמש כמתרגל צמוד: מסייע בדיבוג (Debugging) מהיר והבנת ארכיטקטורות קוד מורכבות.</li>
+                </ul>
+            </div>
+            <a href="https://cursor.sh/" target="_blank" class="card-link">למעבר ל-Cursor 🔗</a>
+        </article>
+
+        <!-- Wolfram Alpha -->
+        <article class="card" data-category="sim research text">
+            <h3 class="card-title">🧮 Wolfram Alpha</h3>
+            <div class="tags-container">
+                <span class="tag">⚙️ חישוב הנדסי</span>
+                <span class="tag">🔬 מתמטיקה ופיזיקה</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> מנוע ידע חישובי אגדי. פותר משוואות, מנתח נתונים, מצייר גרפים תלת-ממדיים ומספק נתוני חומרים הנדסיים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>כלי עזר מרכזי וחסר תחליף לקורסי הליבה: חדו"א, אלגברה לינארית, פיזיקה ומכניקה.</li>
+                    <li>מציג פתרונות שלב-אחר-שלב, מסייע לסטודנט להבין את הדרך ההגיונית ולא רק את התוצאה הסופית.</li>
+                </ul>
+            </div>
+            <a href="https://www.wolframalpha.com/" target="_blank" class="card-link">למעבר ל-Wolfram 🔗</a>
+        </article>
+
+        <!-- NotebookLM -->
+        <article class="card" data-category="english text media manage research">
+            <h3 class="card-title">📚 NotebookLM</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">📝 סילבוס ומאמרים</span>
+                <span class="tag">🎧 פודקאסט</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סוכן ידע אישי מבית Google המבוסס על מקורות סגורים שאתם מעלים (למשל סילבוסים, מצגות). מפיק גם דיונים קוליים (פודקאסטים) עשירים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li><strong>למידה מותאמת אישית:</strong> הפיכת חומרי קורס מורכבים במערכות משובצות או תעשייה וניהול ל-Audio Overview קריא ונגיש.</li>
+                    <li>סוכן שיחה לסטודנט לתרגול חומר הקורס הספציפי בלבד, ללא סטייה למקורות חיצוניים שגויים.</li>
                 </ul>
             </div>
             <a href="https://notebooklm.google.com/" target="_blank" class="card-link">למעבר ל-NotebookLM 🔗</a>
         </article>
 
         <!-- Claude -->
-        <article class="card" data-category="english text code sim">
+        <article class="card" data-category="english text code sim research agents">
             <h3 class="card-title">🧠 Claude (Anthropic)</h3>
             <div class="tags-container">
                 <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">📝 טקסט</span>
+                <span class="tag">📝 עריכה וחשיבה</span>
                 <span class="tag">🔬 סימולציות</span>
                 <span class="tag">💻 קוד</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> מודל שפה בעל יכולות חשיבה, לוגיקה וחלון הקשר עצום. תומך ב-Projects לסביבות עבודה מותאמות.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> מודל שפה מהמתקדמים בעולם, המצטיין בלוגיקה, ניתוח מסמכים מרובים וחלון הקשר עצום (מאפשר העלאת ספר שלם). תומך גם ב-"Artifacts" להצגת קוד.</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li><strong>משוב אנגלית:</strong> Academic Writing Coach לבדיקת טיוטות על בסיס מחוון, מבלי לשכתב לסטודנט.</li>
-                    <li><strong>מעבדה:</strong> בניית סימולציות מדעיות (פולימרים, חקר ביצועים) וניתוח אלגוריתמים מעמיק.</li>
+                    <li><strong>כתיבה אקדמית:</strong> משמש כ-Writing Coach מעולה שלא "דורס" את הקול של הסטודנט, אלא מבקר לפי מחוון מובנה.</li>
+                    <li><strong>מעבדה:</strong> בניית סימולציות מדעיות (הנדסת חומרים, חקר ביצועים) וניתוח אלגוריתמים עמוק.</li>
                 </ul>
             </div>
             <a href="https://claude.ai" target="_blank" class="card-link">למעבר ל-Claude 🔗</a>
         </article>
 
         <!-- ChatGPT -->
-        <article class="card" data-category="text code">
+        <article class="card" data-category="text code sim manage agents">
             <h3 class="card-title">🤖 ChatGPT</h3>
             <div class="tags-container">
                 <span class="tag">📝 טקסט</span>
                 <span class="tag">💻 קוד</span>
+                <span class="tag">⚙️ פתרון בעיות</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> העוזר הגנרי המוביל. מעולה ליצירת תוכן, מדריכים טכניים, ולידציה של מידע וכתיבת קוד.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> העוזר הגנרי הפופולרי בעולם. מעולה ליצירת תוכן, בניית Custom GPTs, ניתוח נתונים בסיסי (Advanced Data Analysis) ופתרון בעיות יומיות.</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li>סיוע בכתיבת סיכומי שיעור ויצירת שאלות חזרה למבחן.</li>
-                    <li>מציאת שגיאות בפתרונות ידניים (למשל באותות ומערכות) ובניית מדריכי למידה עצמית.</li>
+                    <li>סיוע למרצים בבניית תוכניות לימודים, יצירת שאלות מבחן מגוונות ובניית מחוונים (Rubrics).</li>
+                    <li>מציאת שגיאות לוגיות בפתרונות סטודנטים (למשל במעגלים חשמליים או קוד) ומתן פידבק מנומק.</li>
                 </ul>
             </div>
             <a href="https://chatgpt.com" target="_blank" class="card-link">למעבר ל-ChatGPT 🔗</a>
         </article>
 
-        <!-- Gemini Gems -->
-        <article class="card" data-category="english text code">
-            <h3 class="card-title">✨ Gemini Gems</h3>
+        <!-- Gemini -->
+        <article class="card" data-category="english text code manage agents">
+            <h3 class="card-title">✨ Gemini (Google)</h3>
             <div class="tags-container">
                 <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">📝 טקסט</span>
+                <span class="tag">📝 סביבת עבודה</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> עוזר AI של גוגל המאפשר יצירת "מומחה אישי" (Gem) עם הנחיות קבועות.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> עוזר AI המחובר אינטגרלית לכלים הארגוניים (Google Docs, Drive). תומך ביצירת "מומחה אישי" (Gems) עם הנחיות ייעודיות.</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li><strong>תרגול אנגלית:</strong> יצירת Speaking/Vocabulary Coach שנותן רמזים בלבד.</li>
-                    <li>סיוע בסיעור מוחות ושיפור ניסוחים בסביבת Google Docs ו-Workspace.</li>
+                    <li><strong>תרגול אנגלית:</strong> יצירת Speaking/Vocabulary Coach שנותן רמזים מילוליים.</li>
+                    <li>אידיאלי לעבודה סטודנטיאלית משותפת על מסמכי תכנון (SDD) של פרויקטים בתוך סביבת Google Workspace.</li>
                 </ul>
             </div>
             <a href="https://gemini.google.com" target="_blank" class="card-link">למעבר ל-Gemini 🔗</a>
+        </article>
+
+        <!-- Gamma -->
+        <article class="card" data-category="media text manage">
+            <h3 class="card-title">📊 Gamma</h3>
+            <div class="tags-container">
+                <span class="tag">🎥 מצגות</span>
+                <span class="tag">📝 מסמכים ויזואלים</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> יצירת מצגות חכמות, מסמכים ואתרי אינטרנט במהירות שיא. פשוט מזינים טקסט פשוט והמערכת מסדרת אותו בעיצוב נקי ומוקפד.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>המרת מערכי שיעור (Word) למצגות מרהיבות בקליק עבור סגל ההוראה להעלאה מהירה למודל.</li>
+                    <li>כלי פנטסטי לסטודנטים ליצירת מצגות סיכום לפרויקטי הנדסה מבלי להיתקע שעות על פורמט העיצוב.</li>
+                </ul>
+            </div>
+            <a href="https://gamma.app/" target="_blank" class="card-link">למעבר ל-Gamma 🔗</a>
+        </article>
+
+        <!-- Notion AI -->
+        <article class="card" data-category="manage text research">
+            <h3 class="card-title">📓 Notion AI</h3>
+            <div class="tags-container">
+                <span class="tag">⏰ ניהול פרויקטים</span>
+                <span class="tag">📝 סיכום ידע</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סביבת העבודה הפופולרית בעולם משלבת כעת AI המסייע בעריכה, כתיבה מאפס, סיכום אוטומטי של פגישות, וארגון משימות למתודולוגיות Agile.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>כלי ניהול פרויקטים אידיאלי לצוותי סטודנטים בקורסי פיתוח תוכנה (Kanban boards עם סנכרון מלא).</li>
+                    <li>ניהול ידע מחלקתי מרכזי וסיכום פרוטוקולי פגישות הנחיה בלחיצת כפתור.</li>
+                </ul>
+            </div>
+            <a href="https://www.notion.so/product/ai" target="_blank" class="card-link">למעבר ל-Notion AI 🔗</a>
+        </article>
+
+        <!-- Grammarly -->
+        <article class="card" data-category="english text research">
+            <h3 class="card-title">✍️ Grammarly</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 כתיבה אקדמית</span>
+                <span class="tag">📝 עריכת שפה</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> עוזר כתיבה (המציע עתה AI גנרטיבי מלא ליצירת טקסט מאפס). מוודא דיוק דקדוקי, התאמת טון מקצועי, ובהירות ניסוחית באנגלית.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>הסטנדרט המקובל בתעשייה לעריכת מסמכים אקדמיים, מפרטי דרישות קוד וקורות חיים של בוגרים באנגלית.</li>
+                    <li>משפר משמעותית את איכות ההגשות ורמת האנגלית בקורסים המועברים בשפה זרה.</li>
+                </ul>
+            </div>
+            <a href="https://www.grammarly.com/" target="_blank" class="card-link">למעבר ל-Grammarly 🔗</a>
         </article>
 
         <!-- Yoodli -->
@@ -326,33 +633,86 @@
             <h3 class="card-title">🗣️ Yoodli</h3>
             <div class="tags-container">
                 <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">🎤 פרזנטציה</span>
-                <span class="tag">🎥 וידאו</span>
+                <span class="tag">🎤 אימון פרזנטציה</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> מאמן אישי מבוסס וידאו ואודיו לשיפור יכולות העמידה מול קהל ונאום באנגלית.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> מאמן אישי מבוסס וידאו ואודיו לשיפור יכולות העמידה מול קהל ונאום.</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li>תרגול פרזנטציות באנגלית לקראת פרויקט גמר (Soft Skills).</li>
-                    <li>מספק משוב אובייקטיבי על קצב דיבור, מילות "פקק" (Umm, Ah) ושפת גוף.</li>
+                    <li>תרגול פרזנטציות לקראת הצגת פרויקט גמר הנדסי (פיתוח Soft Skills חיוניים למהנדס).</li>
+                    <li>מספק משוב אובייקטיבי ואנליטי על קצב דיבור, חזרתיות, מילות "פקק" (Umm, Ah) ושפת גוף כללית.</li>
                 </ul>
             </div>
             <a href="https://yoodli.ai" target="_blank" class="card-link">למעבר ל-Yoodli 🔗</a>
         </article>
 
+        <!-- Lovable -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">🧩 Lovable</h3>
+            <div class="tags-container">
+                <span class="tag">💻 Vibe coding</span>
+                <span class="tag">⚙️ פיתוח אתרים</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> בניית אתרים ואפליקציות אינטרנט מורכבות (מבוססות React) באמצעות שיחה (Text-to-Code) עם תצוגה מקדימה חיה.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>פיתוח "עוזרי למידה" פנימיים למרצים ולמערך ההדרכה: למשל מחשבון ציונים ייעודי.</li>
+                    <li>הדגמה נהדרת של תהליך פיתוח זריז (Agile) מרעיון לאפליקציה עובדת תוך דקות בכיתה.</li>
+                </ul>
+            </div>
+            <a href="https://lovable.dev" target="_blank" class="card-link">למעבר ל-Lovable 🔗</a>
+        </article>
+
+        <!-- Kaggle -->
+        <article class="card" data-category="sim code research">
+            <h3 class="card-title">📊 Kaggle</h3>
+            <div class="tags-container">
+                <span class="tag">⚙️ Data Science</span>
+                <span class="tag">🔢 Datasets</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> הקהילה הגדולה בעולם למדע נתונים. מאגר עצום של נתונים אמיתיים (Datasets), תחרויות Machine Learning ומודלים מוכנים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי והנדסי</div>
+                <ul>
+                    <li>בקורסי למידת מכונה וסטטיסטיקה: חלוקת Datasets ייחודיים לכל סטודנט במקום להשתמש במאגר אחד שחוק.</li>
+                    <li>מכריח סטודנטים להתמודד עם אתגרי "לכלוך נתונים" (Data Cleaning) המאפיינים את תעשיית ההייטק.</li>
+                </ul>
+            </div>
+            <a href="https://www.kaggle.com" target="_blank" class="card-link">למעבר ל-Kaggle 🔗</a>
+        </article>
+
+        <!-- Tactiq -->
+        <article class="card" data-category="manage text english">
+            <h3 class="card-title">🎙️ Tactiq</h3>
+            <div class="tags-container">
+                <span class="tag">⏰ סיכום פגישות</span>
+                <span class="tag">📝 תמלול אוטומטי</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> תוסף דפדפן מהיר לתמלול בזמן אמת וסיכום של שיחות וידאו בפלטפורמות Zoom, Google Meet ו-Teams.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>סיכום אוטומטי ומיידי של תובנות מהותיות שעלו במפגשי עמיתים, וובינרים אקדמיים או ישיבות סגל.</li>
+                    <li>תמלול פגישות ייעוץ אישיות של המנחה עם הסטודנטים לפרויקט, לטובת שימור ידע רציף.</li>
+                </ul>
+            </div>
+            <a href="https://tactiq.io" target="_blank" class="card-link">למעבר ל-Tactiq 🔗</a>
+        </article>
+
         <!-- ElevenLabs -->
         <article class="card" data-category="english media">
-            <h3 class="card-title">🎙️ ElevenLabs Agents</h3>
+            <h3 class="card-title">🎙️ ElevenLabs</h3>
             <div class="tags-container">
                 <span class="tag">🇬🇧 אנגלית</span>
                 <span class="tag">🔊 קול ושמע</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמה מובילה לסוכני קול בלבד. מאפשרת שיחה קולית טבעית במיוחד באנגלית ללא דמות ויזואלית.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמת AI המובילה בעולם לסינתזת קול (Voice Cloning). מאפשרת יצירת דיבוב ריאליסטי ויצירת סוכני קול טבעיים באנגלית ובשפות נוספות.</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li>פתרון מצוין ל-Speaking Coach לא ויזואלי להעלאת ביטחון ושטף דיבור.</li>
-                    <li>נדרשת רגישות ואישור בנוגע לפרטיות הקלטות קול של סטודנטים.</li>
+                    <li>פתרון מצוין ל-Speaking Coach קולי ללא הסחת דעת של אווטאר ויזואלי, להעלאת ביטחון ושטף דיבור באנגלית.</li>
+                    <li>דיבוב והנגשה קולית של חומרי עזר טקסטואליים לסטודנטים בעלי לקויות למידה או צרכים מיוחדים.</li>
                 </ul>
             </div>
             <a href="https://elevenlabs.io/" target="_blank" class="card-link">למעבר ל-ElevenLabs 🔗</a>
@@ -362,230 +722,18 @@
         <article class="card" data-category="english media">
             <h3 class="card-title">🎥 HeyGen</h3>
             <div class="tags-container">
-                <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">🎥 אווטאר</span>
+                <span class="tag">🎥 אווטאר AI</span>
+                <span class="tag">🇬🇧 רב-לשוניות</span>
             </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> יצירת תוכן וידאו מבוסס טקסט עם אווטארים מדברים.</p>
+            <p class="card-description"><strong>מהות הכלי:</strong> יצירת תוכן וידאו איכותי מבוסס טקסט עם אווטארים מדברים. הפיצ'ר החזק ביותר הוא תרגום ודיבוב מושלם של וידאו קיים לשפות רבות (עם התאמת תנועות שפתיים).</p>
             <div class="callout">
                 <div class="callout-title">💡 יישום פדגוגי</div>
                 <ul>
-                    <li>יצירת "מדריך וידאו" קצר שיציג את יחידת הלימוד או הסילבוס באנגלית שוטפת.</li>
-                    <li>התאמת סרטון פתיחה אחד למספר שפות עבור סטודנטים בינלאומיים.</li>
+                    <li>יצירת "מדריך וידאו" קצר שיציג את מטרות יחידת הלימוד או את הוראות הבטיחות במעבדה הפיזית.</li>
+                    <li>המרה והתאמה של סרטוני הסבר מהרצאות המקור לשפות שונות עבור סטודנטים בינלאומיים הלומדים באפקה.</li>
                 </ul>
             </div>
             <a href="https://www.heygen.com" target="_blank" class="card-link">למעבר ל-HeyGen 🔗</a>
-        </article>
-
-        <!-- D-ID -->
-        <article class="card" data-category="english media">
-            <h3 class="card-title">🎭 D-ID Agents</h3>
-            <div class="tags-container">
-                <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">🎥 אווטאר זמן-אמת</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> סוכן ויזואלי מבוסס אווטאר המאפשר שיחה וקשר עין בזמן אמת.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>תפור עבור סימולציות מורכבות של ראיונות עבודה באנגלית (Role-play).</li>
-                    <li>מייצר אפקט "וואו" בהדגמות, אך דורש מעקב אחר קרדיטים ותקציב.</li>
-                </ul>
-            </div>
-            <a href="https://www.d-id.com/" target="_blank" class="card-link">למעבר ל-D-ID 🔗</a>
-        </article>
-
-        <!-- Synthesia -->
-        <article class="card" data-category="english media">
-            <h3 class="card-title">🎬 Synthesia</h3>
-            <div class="tags-container">
-                <span class="tag">🇬🇧 אנגלית</span>
-                <span class="tag">🎥 וידאו אינטראקטיבי</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמה מקצועית ליצירת סוכני וידאו אינטראקטיביים ובדיקות ידע.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>מיועד לסימולציות מתקדמות ופרזנטציות ארגוניות באיכות גימור גבוהה.</li>
-                    <li>כלי ארגוני ממוסד (פחות מתאים ל"שליפה מהירה" ע"י מרצה בודד).</li>
-                </ul>
-            </div>
-            <a href="https://www.synthesia.io/" target="_blank" class="card-link">למעבר ל-Synthesia 🔗</a>
-        </article>
-
-        <!-- Canva AI -->
-        <article class="card" data-category="media text">
-            <h3 class="card-title">🎨 Canva Magic Studio</h3>
-            <div class="tags-container">
-                <span class="tag">🖼️ עיצוב</span>
-                <span class="tag">🎥 וידאו</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> חבילת כלי AI מובנית ב-Canva ליצירת מצגות, תמונות, ועיבוד טקסט ויזואלי.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>עיצוב מהיר של שקופיות קורס ופוסטרים להצגת פרויקטים אקדמיים.</li>
-                    <li>משימת סטודנטים: יצירת אינפוגרפיקה חזותית המסכמת מאמר.</li>
-                </ul>
-            </div>
-            <a href="https://www.canva.com/magic/" target="_blank" class="card-link">למעבר ל-Canva 🔗</a>
-        </article>
-
-        <!-- GitHub Copilot -->
-        <article class="card" data-category="code">
-            <h3 class="card-title">🐱 GitHub Copilot</h3>
-            <div class="tags-container">
-                <span class="tag">💻 פיתוח</span>
-                <span class="tag">⚙️ אוטומציה</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> עוזר כתיבת קוד אישי השוכן בסביבת הפיתוח (IDE).</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>אידיאלי להוראת כתיבת בדיקות יחידה (Unit Tests) ואוטומציה.</li>
-                    <li>הדגמת בדיקת כיסוי קוד (Coverage) בזמן אמת בפרויקטי תוכנה.</li>
-                </ul>
-            </div>
-            <a href="https://github.com/features/copilot" target="_blank" class="card-link">למעבר ל-Copilot 🔗</a>
-        </article>
-
-        <!-- Lovable -->
-        <article class="card" data-category="code">
-            <h3 class="card-title">🧩 Lovable</h3>
-            <div class="tags-container">
-                <span class="tag">💻 Vibe coding</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> בניית אפליקציות באמצעות שיחה (Text-to-Code) עם תצוגה מקדימה חיה.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>פיתוח "עוזרי למידה" מהירים: מחשבון ציונים, לוח זמנים לקורס ועוד.</li>
-                    <li>הדגמה של תהליך פיתוח זריז מרעיון למוצר עובד תוך דקות.</li>
-                </ul>
-            </div>
-            <a href="https://lovable.dev" target="_blank" class="card-link">למעבר ל-Lovable 🔗</a>
-        </article>
-
-        <!-- Base44 -->
-        <article class="card" data-category="code">
-            <h3 class="card-title">🧩 Base44</h3>
-            <div class="tags-container">
-                <span class="tag">💻 Full Stack</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמת Vibe coding לבניית אפליקציות מורכבות יותר, כולל בסיסי נתונים וצד-שרת.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>בניית סימולטורים פנימיים או בוחן עצמי אינטראקטיבי ללא כתיבת קוד ידנית.</li>
-                    <li>הדגמות ארכיטקטורת תוכנה ו-Prototypes.</li>
-                </ul>
-            </div>
-            <a href="https://base44.com" target="_blank" class="card-link">למעבר ל-Base44 🔗</a>
-        </article>
-
-        <!-- Bolt.new -->
-        <article class="card" data-category="code">
-            <h3 class="card-title">⚡ Bolt.new</h3>
-            <div class="tags-container">
-                <span class="tag">💻 Vibe coding</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> סביבת פיתוח מלאה בדפדפן המופעלת ע"י AI ליצירה והרצה מיידית.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>מעולה למתן מטלות תכנות שהסטודנט יכול לערוך ולבדוק ישירות בדפדפן.</li>
-                    <li>יצירת דוגמאות חיות לשיעורי מערכות מידע ומדעי המחשב.</li>
-                </ul>
-            </div>
-            <a href="https://bolt.new" target="_blank" class="card-link">למעבר ל-Bolt.new 🔗</a>
-        </article>
-
-        <!-- Kaggle -->
-        <article class="card" data-category="sim code">
-            <h3 class="card-title">📊 Kaggle</h3>
-            <div class="tags-container">
-                <span class="tag">📉 סטטיסטיקה</span>
-                <span class="tag">🔢 Datasets</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> קהילת מדע נתונים ומאגר עצום של נתונים אמיתיים (Datasets) לחקירה.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>קורסי סטטיסטיקה: חלוקת Datasets ייחודיים לכל סטודנט לניתוח.</li>
-                    <li>מונע העתקות ומכריח התמודדות עם לכלוך נתונים "מהעולם האמיתי".</li>
-                </ul>
-            </div>
-            <a href="https://www.kaggle.com" target="_blank" class="card-link">למעבר ל-Kaggle 🔗</a>
-        </article>
-
-        <!-- Whisk -->
-        <article class="card" data-category="media">
-            <h3 class="card-title">🎬 Whisk</h3>
-            <div class="tags-container">
-                <span class="tag">🖼️ ויזואליזציה</span>
-                <span class="tag">🎥 וידאו קצר</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> פרויקט ניסיוני של Google Labs להפיכת תמונות רפרנס לדימויים וסרטונים עשירים.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>הפקת סרטוני אווירה קצרים מתמונות המעבדה או הקמפוס.</li>
-                    <li>משימת יצירה חזותית לסיכום חוויית ניסוי.</li>
-                </ul>
-            </div>
-            <a href="https://labs.google/fx/tools/whisk" target="_blank" class="card-link">למעבר ל-Whisk 🔗</a>
-        </article>
-
-        <!-- Tactiq -->
-        <article class="card" data-category="manage text">
-            <h3 class="card-title">🎙️ Tactiq</h3>
-            <div class="tags-container">
-                <span class="tag">📝 תמלול אוטומטי</span>
-                <span class="tag">⏰ ארגון</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> תוסף דפדפן לתמלול בזמן אמת וסיכום שיחות זום/מיט.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>סיכום אוטומטי של תובנות במפגשי עמיתים או ישיבות סגל.</li>
-                    <li>יצירת סיכומי פגישות ייעוץ עם סטודנטים בקליק.</li>
-                </ul>
-            </div>
-            <a href="https://tactiq.io" target="_blank" class="card-link">למעבר ל-Tactiq 🔗</a>
-        </article>
-
-        <!-- Timeless -->
-        <article class="card" data-category="manage">
-            <h3 class="card-title">⏳ Timeless</h3>
-            <div class="tags-container">
-                <span class="tag">⏰ ניהול זמן</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> יומן חכם מבוסס AI לניהול, תכנון ותיעוד פעולות.</p>
-            <div class="callout">
-                <div class="callout-title">💡 יישום פדגוגי</div>
-                <ul>
-                    <li>תכנון זמנים קפדני לסדנאות מעשיות ולמפגשי עמיתים.</li>
-                    <li>ארגון לו"ז אקדמי אישי בצורה פרואקטיבית.</li>
-                </ul>
-            </div>
-            <a href="https://timeless.co" target="_blank" class="card-link">למעבר ל-Timeless 🔗</a>
-        </article>
-
-        <!-- Botpress / Copilot / Advanced -->
-        <article class="card" data-category="english manage code">
-            <h3 class="card-title">⚙️ כלים מוסדיים/API</h3>
-            <div class="tags-container">
-                <span class="tag">🏢 Microsoft</span>
-                <span class="tag">🤖 Botpress/Voiceflow</span>
-            </div>
-            <p class="card-description"><strong>מהות הכלי:</strong> קבוצת כלים מתקדמים (Copilot Studio, Botpress, Voiceflow) לבניית סוכנים ארגוניים מורכבים וזרימות שיחה (Workflows).</p>
-            <div class="callout callout-warning">
-                <div class="callout-title">⚠️ לתשומת לב המרצים</div>
-                <ul>
-                    <li>דורש עקומת למידה משמעותית או צוות פיתוח מסייע.</li>
-                    <li>פתרונות מיקרוסופט (Copilot) מחייבים אישור ורישוי של אגף מערכות מידע (IT) באפקה.</li>
-                </ul>
-            </div>
-            <a href="#" style="pointer-events: none; background-color: #eef0f2; color: #5a6c7d;" class="card-link">לשימוש מתקדם - פנו לצוות התמיכה</a>
         </article>
 
     </main>
@@ -611,7 +759,7 @@
                     
                     if (filterValue === 'all' || categories.includes(filterValue)) {
                         card.classList.remove('hidden');
-                        // הפעלת אנימציה מחדש
+                        // הפעלת אנימציה מחדש לחוויה חלקה יותר
                         card.style.animation = 'none';
                         card.offsetHeight; // Triggers reflow
                         card.style.animation = null;
