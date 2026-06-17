@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ארגז כלי AI - אפקה</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alef&family=Assistant&family=Heebo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #339966;
+            --dark-charcoal: #2c3e50;
+            --metallic-gray: #5a6c7d;
+            --soft-bg: #f8f9fa;
+            --card-border: #eef0f2;
+            --warning-bg: #fff9e6;
+            --warning-text: #856404;
+        }
+
+        body {
+            font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+            background-color: var(--soft-bg);
+            color: var(--dark-charcoal);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* כותרת ראשית (עיצוב ירוק מקורי) */
+        .hero-header {
+            background: #3FB073;
+            color: #ffffff;
+            padding: 40px 24px;
+            border-radius: 24px;
+            box-shadow: 0 16px 30px rgba(63, 176, 115, 0.25);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(255,255,255,0.2) 0, rgba(255,255,255,0.2) 2px, transparent 2px), 
+                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.15) 0, rgba(255,255,255,0.15) 2px, transparent 2px);
+            background-size: 100px 100px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-header p {
+            margin: 0 auto;
+            font-size: 1.1rem;
+            max-width: 800px;
+            opacity: 0.95;
+        }
+
+        /* מנגנון סינון */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--card-border);
+        }
+
+        .filter-btn {
+            background-color: #ffffff;
+            color: var(--dark-charcoal);
+            border: 1px solid var(--card-border);
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+            box-shadow: 0 4px 12px rgba(51, 153, 102, 0.3);
+        }
+
+        /* גריד כרטיסיות מבוסס Flexbox */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .card {
+            flex: 1 1 340px;
+            min-width: 300px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            color: var(--primary-green);
+            font-weight: 800;
+            font-size: 22px;
+            margin: 0;
+            border-bottom: 2px solid var(--soft-bg);
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: rgba(51, 153, 102, 0.1);
+            color: var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .card-description {
+            margin: 0 0 20px 0;
+            color: var(--dark-charcoal);
+            font-size: 16px;
+            flex-grow: 1;
+        }
+
+        /* תיבות Callout */
+        .callout {
+            background-color: var(--soft-bg);
+            border-right: 5px solid var(--primary-green);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .callout-title {
+            font-weight: 800;
+            color: var(--dark-charcoal);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .callout ul {
+            margin: 0;
+            padding-inline-start: 20px;
+            font-size: 14px;
+            color: var(--metallic-gray);
+        }
+
+        .callout-warning {
+            background-color: var(--warning-bg);
+            border-right: none;
+            border: 1px solid rgba(133, 100, 4, 0.15);
+            color: var(--warning-text);
+        }
+
+        .card-link {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: opacity 0.2s;
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            opacity: 0.9;
+        }
+
+        /* עזרים להסתרת אלמנטים בסינון */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- כותרת -->
+    <header class="hero-header">
+        <h1>🚀 קטלוג כלי AI מתקדם</h1>
+        <p>ארגז הכלים המלא למרצי אפקה, המשלב כלים ממפגשי העמיתים, מעבדת ה-AI, ומערכי תרגול האנגלית. השתמשו בסינון כדי למצוא בדיוק את הכלי לו אתם זקוקים.</p>
+    </header>
+
+    <!-- מערכת סינון -->
+    <nav class="filters" id="filter-container">
+        <button class="filter-btn active" data-filter="all">הכל</button>
+        <button class="filter-btn" data-filter="english">🇬🇧 תרגול אנגלית</button>
+        <button class="filter-btn" data-filter="text">📝 טקסט ושפה</button>
+        <button class="filter-btn" data-filter="code">💻 קוד ופיתוח</button>
+        <button class="filter-btn" data-filter="media">🎥 וידאו ועיצוב</button>
+        <button class="filter-btn" data-filter="sim">🔬 סימולציות</button>
+        <button class="filter-btn" data-filter="manage">⏰ ארגון וניהול</button>
+    </nav>
+
+    <!-- גריד הכלים -->
+    <main class="tools-grid" id="tools-grid">
+
+        <!-- NotebookLM -->
+        <article class="card" data-category="english text media manage">
+            <h3 class="card-title">📚 NotebookLM</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">📝 טקסט</span>
+                <span class="tag">🎧 פודקאסט</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סוכן ידע אישי מבוסס מקורות סגורים (מאמרים, סילבוסים). מפיק פודקאסטים עשירים ומאפשר שאלות על החומר.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li><strong>תרגול אנגלית:</strong> Reading Companion לסיכום ודיון על טקסטים אקדמיים (ללא חילוץ תשובות מגוגל).</li>
+                    <li><strong>למידה מותאמת:</strong> הפיכת חומרי קורס מורכבים (כמו ניתוח תפעולי) ל-Audio Overview מרתק.</li>
+                </ul>
+            </div>
+            <a href="https://notebooklm.google.com/" target="_blank" class="card-link">למעבר ל-NotebookLM 🔗</a>
+        </article>
+
+        <!-- Claude -->
+        <article class="card" data-category="english text code sim">
+            <h3 class="card-title">🧠 Claude (Anthropic)</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">📝 טקסט</span>
+                <span class="tag">🔬 סימולציות</span>
+                <span class="tag">💻 קוד</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> מודל שפה בעל יכולות חשיבה, לוגיקה וחלון הקשר עצום. תומך ב-Projects לסביבות עבודה מותאמות.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li><strong>משוב אנגלית:</strong> Academic Writing Coach לבדיקת טיוטות על בסיס מחוון, מבלי לשכתב לסטודנט.</li>
+                    <li><strong>מעבדה:</strong> בניית סימולציות מדעיות (פולימרים, חקר ביצועים) וניתוח אלגוריתמים מעמיק.</li>
+                </ul>
+            </div>
+            <a href="https://claude.ai" target="_blank" class="card-link">למעבר ל-Claude 🔗</a>
+        </article>
+
+        <!-- ChatGPT -->
+        <article class="card" data-category="text code">
+            <h3 class="card-title">🤖 ChatGPT</h3>
+            <div class="tags-container">
+                <span class="tag">📝 טקסט</span>
+                <span class="tag">💻 קוד</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> העוזר הגנרי המוביל. מעולה ליצירת תוכן, מדריכים טכניים, ולידציה של מידע וכתיבת קוד.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>סיוע בכתיבת סיכומי שיעור ויצירת שאלות חזרה למבחן.</li>
+                    <li>מציאת שגיאות בפתרונות ידניים (למשל באותות ומערכות) ובניית מדריכי למידה עצמית.</li>
+                </ul>
+            </div>
+            <a href="https://chatgpt.com" target="_blank" class="card-link">למעבר ל-ChatGPT 🔗</a>
+        </article>
+
+        <!-- Gemini Gems -->
+        <article class="card" data-category="english text code">
+            <h3 class="card-title">✨ Gemini Gems</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">📝 טקסט</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> עוזר AI של גוגל המאפשר יצירת "מומחה אישי" (Gem) עם הנחיות קבועות.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li><strong>תרגול אנגלית:</strong> יצירת Speaking/Vocabulary Coach שנותן רמזים בלבד.</li>
+                    <li>סיוע בסיעור מוחות ושיפור ניסוחים בסביבת Google Docs ו-Workspace.</li>
+                </ul>
+            </div>
+            <a href="https://gemini.google.com" target="_blank" class="card-link">למעבר ל-Gemini 🔗</a>
+        </article>
+
+        <!-- Yoodli -->
+        <article class="card" data-category="english media text">
+            <h3 class="card-title">🗣️ Yoodli</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">🎤 פרזנטציה</span>
+                <span class="tag">🎥 וידאו</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> מאמן אישי מבוסס וידאו ואודיו לשיפור יכולות העמידה מול קהל ונאום באנגלית.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>תרגול פרזנטציות באנגלית לקראת פרויקט גמר (Soft Skills).</li>
+                    <li>מספק משוב אובייקטיבי על קצב דיבור, מילות "פקק" (Umm, Ah) ושפת גוף.</li>
+                </ul>
+            </div>
+            <a href="https://yoodli.ai" target="_blank" class="card-link">למעבר ל-Yoodli 🔗</a>
+        </article>
+
+        <!-- ElevenLabs -->
+        <article class="card" data-category="english media">
+            <h3 class="card-title">🎙️ ElevenLabs Agents</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">🔊 קול ושמע</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמה מובילה לסוכני קול בלבד. מאפשרת שיחה קולית טבעית במיוחד באנגלית ללא דמות ויזואלית.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>פתרון מצוין ל-Speaking Coach לא ויזואלי להעלאת ביטחון ושטף דיבור.</li>
+                    <li>נדרשת רגישות ואישור בנוגע לפרטיות הקלטות קול של סטודנטים.</li>
+                </ul>
+            </div>
+            <a href="https://elevenlabs.io/" target="_blank" class="card-link">למעבר ל-ElevenLabs 🔗</a>
+        </article>
+
+        <!-- HeyGen -->
+        <article class="card" data-category="english media">
+            <h3 class="card-title">🎥 HeyGen</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">🎥 אווטאר</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> יצירת תוכן וידאו מבוסס טקסט עם אווטארים מדברים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>יצירת "מדריך וידאו" קצר שיציג את יחידת הלימוד או הסילבוס באנגלית שוטפת.</li>
+                    <li>התאמת סרטון פתיחה אחד למספר שפות עבור סטודנטים בינלאומיים.</li>
+                </ul>
+            </div>
+            <a href="https://www.heygen.com" target="_blank" class="card-link">למעבר ל-HeyGen 🔗</a>
+        </article>
+
+        <!-- D-ID -->
+        <article class="card" data-category="english media">
+            <h3 class="card-title">🎭 D-ID Agents</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">🎥 אווטאר זמן-אמת</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סוכן ויזואלי מבוסס אווטאר המאפשר שיחה וקשר עין בזמן אמת.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>תפור עבור סימולציות מורכבות של ראיונות עבודה באנגלית (Role-play).</li>
+                    <li>מייצר אפקט "וואו" בהדגמות, אך דורש מעקב אחר קרדיטים ותקציב.</li>
+                </ul>
+            </div>
+            <a href="https://www.d-id.com/" target="_blank" class="card-link">למעבר ל-D-ID 🔗</a>
+        </article>
+
+        <!-- Synthesia -->
+        <article class="card" data-category="english media">
+            <h3 class="card-title">🎬 Synthesia</h3>
+            <div class="tags-container">
+                <span class="tag">🇬🇧 אנגלית</span>
+                <span class="tag">🎥 וידאו אינטראקטיבי</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמה מקצועית ליצירת סוכני וידאו אינטראקטיביים ובדיקות ידע.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>מיועד לסימולציות מתקדמות ופרזנטציות ארגוניות באיכות גימור גבוהה.</li>
+                    <li>כלי ארגוני ממוסד (פחות מתאים ל"שליפה מהירה" ע"י מרצה בודד).</li>
+                </ul>
+            </div>
+            <a href="https://www.synthesia.io/" target="_blank" class="card-link">למעבר ל-Synthesia 🔗</a>
+        </article>
+
+        <!-- Canva AI -->
+        <article class="card" data-category="media text">
+            <h3 class="card-title">🎨 Canva Magic Studio</h3>
+            <div class="tags-container">
+                <span class="tag">🖼️ עיצוב</span>
+                <span class="tag">🎥 וידאו</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> חבילת כלי AI מובנית ב-Canva ליצירת מצגות, תמונות, ועיבוד טקסט ויזואלי.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>עיצוב מהיר של שקופיות קורס ופוסטרים להצגת פרויקטים אקדמיים.</li>
+                    <li>משימת סטודנטים: יצירת אינפוגרפיקה חזותית המסכמת מאמר.</li>
+                </ul>
+            </div>
+            <a href="https://www.canva.com/magic/" target="_blank" class="card-link">למעבר ל-Canva 🔗</a>
+        </article>
+
+        <!-- GitHub Copilot -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">🐱 GitHub Copilot</h3>
+            <div class="tags-container">
+                <span class="tag">💻 פיתוח</span>
+                <span class="tag">⚙️ אוטומציה</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> עוזר כתיבת קוד אישי השוכן בסביבת הפיתוח (IDE).</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>אידיאלי להוראת כתיבת בדיקות יחידה (Unit Tests) ואוטומציה.</li>
+                    <li>הדגמת בדיקת כיסוי קוד (Coverage) בזמן אמת בפרויקטי תוכנה.</li>
+                </ul>
+            </div>
+            <a href="https://github.com/features/copilot" target="_blank" class="card-link">למעבר ל-Copilot 🔗</a>
+        </article>
+
+        <!-- Lovable -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">🧩 Lovable</h3>
+            <div class="tags-container">
+                <span class="tag">💻 Vibe coding</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> בניית אפליקציות באמצעות שיחה (Text-to-Code) עם תצוגה מקדימה חיה.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>פיתוח "עוזרי למידה" מהירים: מחשבון ציונים, לוח זמנים לקורס ועוד.</li>
+                    <li>הדגמה של תהליך פיתוח זריז מרעיון למוצר עובד תוך דקות.</li>
+                </ul>
+            </div>
+            <a href="https://lovable.dev" target="_blank" class="card-link">למעבר ל-Lovable 🔗</a>
+        </article>
+
+        <!-- Base44 -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">🧩 Base44</h3>
+            <div class="tags-container">
+                <span class="tag">💻 Full Stack</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פלטפורמת Vibe coding לבניית אפליקציות מורכבות יותר, כולל בסיסי נתונים וצד-שרת.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>בניית סימולטורים פנימיים או בוחן עצמי אינטראקטיבי ללא כתיבת קוד ידנית.</li>
+                    <li>הדגמות ארכיטקטורת תוכנה ו-Prototypes.</li>
+                </ul>
+            </div>
+            <a href="https://base44.com" target="_blank" class="card-link">למעבר ל-Base44 🔗</a>
+        </article>
+
+        <!-- Bolt.new -->
+        <article class="card" data-category="code">
+            <h3 class="card-title">⚡ Bolt.new</h3>
+            <div class="tags-container">
+                <span class="tag">💻 Vibe coding</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> סביבת פיתוח מלאה בדפדפן המופעלת ע"י AI ליצירה והרצה מיידית.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>מעולה למתן מטלות תכנות שהסטודנט יכול לערוך ולבדוק ישירות בדפדפן.</li>
+                    <li>יצירת דוגמאות חיות לשיעורי מערכות מידע ומדעי המחשב.</li>
+                </ul>
+            </div>
+            <a href="https://bolt.new" target="_blank" class="card-link">למעבר ל-Bolt.new 🔗</a>
+        </article>
+
+        <!-- Kaggle -->
+        <article class="card" data-category="sim code">
+            <h3 class="card-title">📊 Kaggle</h3>
+            <div class="tags-container">
+                <span class="tag">📉 סטטיסטיקה</span>
+                <span class="tag">🔢 Datasets</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> קהילת מדע נתונים ומאגר עצום של נתונים אמיתיים (Datasets) לחקירה.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>קורסי סטטיסטיקה: חלוקת Datasets ייחודיים לכל סטודנט לניתוח.</li>
+                    <li>מונע העתקות ומכריח התמודדות עם לכלוך נתונים "מהעולם האמיתי".</li>
+                </ul>
+            </div>
+            <a href="https://www.kaggle.com" target="_blank" class="card-link">למעבר ל-Kaggle 🔗</a>
+        </article>
+
+        <!-- Whisk -->
+        <article class="card" data-category="media">
+            <h3 class="card-title">🎬 Whisk</h3>
+            <div class="tags-container">
+                <span class="tag">🖼️ ויזואליזציה</span>
+                <span class="tag">🎥 וידאו קצר</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> פרויקט ניסיוני של Google Labs להפיכת תמונות רפרנס לדימויים וסרטונים עשירים.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>הפקת סרטוני אווירה קצרים מתמונות המעבדה או הקמפוס.</li>
+                    <li>משימת יצירה חזותית לסיכום חוויית ניסוי.</li>
+                </ul>
+            </div>
+            <a href="https://labs.google/fx/tools/whisk" target="_blank" class="card-link">למעבר ל-Whisk 🔗</a>
+        </article>
+
+        <!-- Tactiq -->
+        <article class="card" data-category="manage text">
+            <h3 class="card-title">🎙️ Tactiq</h3>
+            <div class="tags-container">
+                <span class="tag">📝 תמלול אוטומטי</span>
+                <span class="tag">⏰ ארגון</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> תוסף דפדפן לתמלול בזמן אמת וסיכום שיחות זום/מיט.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>סיכום אוטומטי של תובנות במפגשי עמיתים או ישיבות סגל.</li>
+                    <li>יצירת סיכומי פגישות ייעוץ עם סטודנטים בקליק.</li>
+                </ul>
+            </div>
+            <a href="https://tactiq.io" target="_blank" class="card-link">למעבר ל-Tactiq 🔗</a>
+        </article>
+
+        <!-- Timeless -->
+        <article class="card" data-category="manage">
+            <h3 class="card-title">⏳ Timeless</h3>
+            <div class="tags-container">
+                <span class="tag">⏰ ניהול זמן</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> יומן חכם מבוסס AI לניהול, תכנון ותיעוד פעולות.</p>
+            <div class="callout">
+                <div class="callout-title">💡 יישום פדגוגי</div>
+                <ul>
+                    <li>תכנון זמנים קפדני לסדנאות מעשיות ולמפגשי עמיתים.</li>
+                    <li>ארגון לו"ז אקדמי אישי בצורה פרואקטיבית.</li>
+                </ul>
+            </div>
+            <a href="https://timeless.co" target="_blank" class="card-link">למעבר ל-Timeless 🔗</a>
+        </article>
+
+        <!-- Botpress / Copilot / Advanced -->
+        <article class="card" data-category="english manage code">
+            <h3 class="card-title">⚙️ כלים מוסדיים/API</h3>
+            <div class="tags-container">
+                <span class="tag">🏢 Microsoft</span>
+                <span class="tag">🤖 Botpress/Voiceflow</span>
+            </div>
+            <p class="card-description"><strong>מהות הכלי:</strong> קבוצת כלים מתקדמים (Copilot Studio, Botpress, Voiceflow) לבניית סוכנים ארגוניים מורכבים וזרימות שיחה (Workflows).</p>
+            <div class="callout callout-warning">
+                <div class="callout-title">⚠️ לתשומת לב המרצים</div>
+                <ul>
+                    <li>דורש עקומת למידה משמעותית או צוות פיתוח מסייע.</li>
+                    <li>פתרונות מיקרוסופט (Copilot) מחייבים אישור ורישוי של אגף מערכות מידע (IT) באפקה.</li>
+                </ul>
+            </div>
+            <a href="#" style="pointer-events: none; background-color: #eef0f2; color: #5a6c7d;" class="card-link">לשימוש מתקדם - פנו לצוות התמיכה</a>
+        </article>
+
+    </main>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 1. הסרת מחלקה פעילה מכולם והוספה לכפתור שנלחץ
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // 2. קבלת הקטגוריה לסינון
+                const filterValue = btn.getAttribute('data-filter');
+
+                // 3. סינון הכרטיסיות
+                cards.forEach(card => {
+                    const categories = card.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        card.classList.remove('hidden');
+                        // הפעלת אנימציה מחדש
+                        card.style.animation = 'none';
+                        card.offsetHeight; // Triggers reflow
+                        card.style.animation = null;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
